@@ -32,4 +32,4 @@ jobs:
       - name: Run Xenon Complexity Enforcement
         id: xenon-check
         run: |
-          xenon --max-absolute B
+          xenon --max-absolute B ./
