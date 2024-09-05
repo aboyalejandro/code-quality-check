@@ -31,7 +31,7 @@ By using Xenon, you prevent overly complex code from being added to your project
 
 ## Setup Instructions
 
-1. ### 👨🏻‍💻 Running Locally
+### 👨🏻‍💻 Running Locally
 
 Requirements: python >= 3.9 & pip
 
@@ -59,7 +59,7 @@ radon mi ./
 xenon --max-absolute B ./
 ```
 
-2. ### 📦 Using Docker
+### 📦 Using Docker
 
 Requirements: Docker Desktop
 
@@ -68,7 +68,7 @@ docker build -t code-quality-checker .
 docker run -t code-quality-checker
 ```
 
-3. ### 🔂 GitHub Actions Integration
+### 🔂 GitHub Actions Integration
 
 Requirements: Github repo
 
@@ -86,13 +86,13 @@ How it works:
 
 Once the checks are completed, you'll see the results directly in the GitHub pull request under the "Checks" tab.
 
-4. ### 🔨 Customizing Xenon Complexity
+### 🔨 Customizing Xenon Complexity
 
 You can modify the complexity threshold for Xenon by changing the ``--max-absolute`` flag in your GitHub Actions workflow or when running it locally.
 
 Available grades are A, B, C, D, and F, with A being the least complex and F being the most complex.
  
-5. #### You can also enable the VSCode extension called ``python-radon`` or ``vscode-radon-linter``
+#### You can also enable the VSCode extension called ``python-radon`` or ``vscode-radon-linter``
 
 ### 😎 [Follow me on Linkedin](https://www.linkedin.com/in/alejandro-aboy/)
 - Get tips, learnings and tricks for your Data career!
