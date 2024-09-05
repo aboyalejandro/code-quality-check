@@ -14,11 +14,6 @@ This repository uses Radon and Xenon to analyze code complexity and maintainabil
 
 - **Cyclomatic Complexity (CC)**: Measures how complex a function is by counting the number of decisions or branches (e.g., if, for, while). Lower complexity means simpler, easier-to-read code. Grades range from A (simplest) to F (most complex).
 
-Example:
-
-- A function with few if statements is simple (Grade A or B).
-- A function with many conditions is complex (Grade C or worse).
-
 - **Maintainability Index (MI)**: Tells you how easy the code is to maintain. Higher numbers mean more maintainable code. Radon uses the length of your code, the number of comments, and its complexity to calculate this score.
 
 ### Xenon
@@ -36,71 +31,68 @@ By using Xenon, you prevent overly complex code from being added to your project
 
 ## Setup Instructions
 
-1. 👨🏻‍💻 Running Locally
+1. ### 👨🏻‍💻 Running Locally
 
-    Requirements:
-    - Python 3.9 or higher
-    - pip
+Requirements: python >= 3.9 & pip
 
-    Install Dependencies:
-    ``sh
-    pip install radon xenon
-    ``
+- Install Dependencies:
+   
+```sh
+pip install radon xenon
+```
+    
+- Cyclomatic Complexity (CC) Check:
+    
+```sh
+radon cc ./ -s
+```
+    
+- Maintainability Index (MI) Check:
+    
+```sh
+radon mi ./
+```
+    
+- Xenon Complexity Enforcement:
+    
+```sh
+xenon --max-absolute B ./
+```
 
-    - Cyclomatic Complexity (CC) Check:
+2. ### 📦 Using Docker
 
-    ``sh
-        radon cc ./ -s
-    ``
+Requirements: Docker Desktop
 
-    - Maintainability Index (MI) Check:
+```sh
+docker build -t code-quality-checker .
+docker run -t code-quality-checker
+```
 
-    ``sh
-        radon mi ./
-    ``  
+3. ### 🔂 GitHub Actions Integration
 
-    - Xenon Complexity Enforcement:
+Requirements: Github repo
 
-    ``sh
-        xenon --max-absolute B ./
-    ``
+This repository includes a GitHub Actions workflow that automatically checks the code quality when a pull request is opened or updated on the main branch.
 
-2. 📦 Using Docker
+GitHub Actions Workflow ``.github/workflows/code-quality.yml``
 
-    Requirements:
-    - Docker Desktop
+How it works:
+- Trigger: This workflow runs on any pull request targeting the main branch.
+- Python Setup: Python 3.9 is installed and used in the workflow.
+- Code Quality Check: The following checks are run:
+    - Radon CC analysis.
+    - Radon MI analysis.
+    - Xenon complexity enforcement (max absolute complexity level B).
 
-    ``sh
-    docker build -t code-quality-checker .
-    docker run -t code-quality-checker
-    ``
+Once the checks are completed, you'll see the results directly in the GitHub pull request under the "Checks" tab.
 
-3. 🔂 GitHub Actions Integration
+4. ### 🔨 Customizing Xenon Complexity
 
-    Requirements:
-    - Github repo
+You can modify the complexity threshold for Xenon by changing the ``--max-absolute`` flag in your GitHub Actions workflow or when running it locally.
 
-    This repository includes a GitHub Actions workflow that automatically checks the code quality when a pull request is opened or updated on the main branch.
-
-    GitHub Actions Workflow ``.github/workflows/code-quality.yml``
-
-    How it works:
-    - Trigger: This workflow runs on any pull request targeting the main branch.
-    - Python Setup: Python 3.9 is installed and used in the workflow.
-    - Code Quality Check: The following checks are run:
-        - Radon CC analysis.
-        - Radon MI analysis.
-        - Xenon complexity enforcement (max absolute complexity level B).
-
-    Once the checks are completed, you'll see the results directly in the GitHub pull request under the "Checks" tab.
-
-4. 🔨 Customizing Xenon Complexity
-
-    You can modify the complexity threshold for Xenon by changing the ``--max-absolute`` flag in your GitHub Actions workflow or when running it locally.
-
-    Available grades are A, B, C, D, and F, with A being the least complex and F being the most complex.
-
-5. You can also enable the VSCode extension called ``python-radon`` or ``vscode-radon-linter``
+Available grades are A, B, C, D, and F, with A being the least complex and F being the most complex.
+ 
+5. #### You can also enable the VSCode extension called ``python-radon`` or ``vscode-radon-linter``
 
 ### 😎 [Follow me on Linkedin](https://www.linkedin.com/in/alejandro-aboy/)
 - Get tips, learnings and tricks for your Data career!
