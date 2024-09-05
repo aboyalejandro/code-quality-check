@@ -86,6 +86,8 @@ How it works:
 
 Once the checks are completed, you'll see the results directly in the GitHub pull request under the "Checks" tab.
 
+There's a [sample pull request](https://github.com/aboyalejandro/code_quality_check/pull/1) to can check to see the outcome.
+
 ### 🔨 Customizing Xenon Complexity
 
 You can modify the complexity threshold for Xenon by changing the ``--max-absolute`` flag in your GitHub Actions workflow or when running it locally.
