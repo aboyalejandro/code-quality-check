@@ -58,6 +58,9 @@ radon mi ./
 ```sh
 xenon --max-absolute B ./
 ```
+This is how the result should look like:
+
+![alt text](screenshots/check_result.png)
 
 ### 📦 Using Docker
 
@@ -93,6 +96,21 @@ There's a [sample pull request](https://github.com/aboyalejandro/code_quality_ch
 You can modify the complexity threshold for Xenon by changing the ``--max-absolute`` flag in your GitHub Actions workflow or when running it locally.
 
 Available grades are A, B, C, D, and F, with A being the least complex and F being the most complex.
+
+### 🔥 Fixing the code with CursorAI
+
+Cursor is an AI-powered code editor that can help you fix your code by adding comments, suggestions, and even whole functions and classes.
+
+You can paste the code into Cursor and it will give you a summary of the code and suggestions on how to improve it:
+
+![alt text](screenshots/prompt.png)
+
+This is the answer of Claude 3.5 Sonnet:
+![alt text](screenshots/prompt_output.png)
+
+The result of the code after applying the suggestions:
+
+![alt text](screenshots/check_after_fix.png)
  
 #### You can also enable the VSCode extension called ``python-radon`` or ``vscode-radon-linter``
 
