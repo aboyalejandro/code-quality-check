@@ -60,7 +60,7 @@ xenon --max-absolute B ./
 ```
 This is how the result should look like:
 
-![alt text](screenshots/check_result.png)
+<img width="608" alt="check_result" src="screenshots/check_result.png">
 
 ### 📦 Using Docker
 
@@ -103,14 +103,15 @@ Cursor is an AI-powered code editor that can help you fix your code by adding co
 
 You can paste the code into Cursor and it will give you a summary of the code and suggestions on how to improve it:
 
-![alt text](screenshots/prompt.png)
+<img width="608" alt="prompt" src="screenshots/prompt.png">
 
 This is the answer of Claude 3.5 Sonnet:
-![alt text](screenshots/prompt_output.png)
+
+<img width="608" alt="prompt_output" src="screenshots/prompt_output.png">
 
 The result of the code after applying the suggestions:
 
-![alt text](screenshots/check_after_fix.png)
+<img width="608" alt="check_after_fix" src="screenshots/check_after_fix.png">
  
 #### You can also enable the VSCode extension called ``python-radon`` or ``vscode-radon-linter``
 
