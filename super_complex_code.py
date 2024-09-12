@@ -6,7 +6,7 @@ class A:
 
     def compute(self):
         if self.x % 3 == 0:
-            result = (self.x * 3) // 2
+            result = (self.x * 3) // 2 * 27
         else:
             result = (self.x + 1) * (self.x - 1)
 
