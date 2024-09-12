@@ -8,30 +8,14 @@ This repository uses Radon and Xenon to analyze code complexity and maintainabil
 - Xenon for enforcing complexity thresholds.
 - Runs checks both locally and in CI/CD pipelines with GitHub Actions.
 
-## 📝 Concepts
+### 👇 For context on how these metrics work, you can read this blog post:
 
-### Radon
-
-- **Cyclomatic Complexity (CC)**: Measures how complex a function is by counting the number of decisions or branches (e.g., if, for, while). Lower complexity means simpler, easier-to-read code. Grades range from A (simplest) to F (most complex).
-
-- **Maintainability Index (MI)**: Tells you how easy the code is to maintain. Higher numbers mean more maintainable code. Radon uses the length of your code, the number of comments, and its complexity to calculate this score.
-
-### Xenon
-
-- Xenon builds on Radon by enforcing complexity rules. You set a maximum allowable complexity (like Grade B), and Xenon checks whether your code stays within that limit.
-
-#### 💥 Complexity Grades
-
-- A: Very simple.
-- B: Slightly complex.
-- C: Acceptable for complicated logic.
-- D & F: Too complex, harder to maintain.
-
-By using Xenon, you prevent overly complex code from being added to your project.
+[👀 How to fix your Python code with Radon & Xenon before it's too late](https://thepipeandtheline.substack.com/p/how-to-fix-your-python-code-with-radon-and-xenon
+)
 
 ## Setup Instructions
 
-### 👨🏻‍💻 Running Locally
+### 1. 👨🏻‍💻 Running Locally
 
 Requirements: python >= 3.9 & pip
 
@@ -62,7 +46,7 @@ This is how the result should look like:
 
 <img width="608" alt="check_result" src="screenshots/check_result.png">
 
-### 📦 Using Docker
+### 2. 📦 Using Docker
 
 Requirements: Docker Desktop
 
@@ -71,7 +55,7 @@ docker build -t code-quality-checker .
 docker run -t code-quality-checker
 ```
 
-### 🔂 GitHub Actions Integration
+### 3. 🔂 GitHub Actions Integration
 
 Requirements: Github repo
 
@@ -79,41 +63,15 @@ This repository includes a GitHub Actions workflow that automatically checks the
 
 GitHub Actions Workflow ``.github/workflows/code-quality.yml``
 
-How it works:
-- Trigger: This workflow runs on any pull request targeting the main branch.
-- Python Setup: Python 3.9 is installed and used in the workflow.
-- Code Quality Check: The following checks are run:
-    - Radon CC analysis.
-    - Radon MI analysis.
-    - Xenon complexity enforcement (max absolute complexity level B).
-
 Once the checks are completed, you'll see the results directly in the GitHub pull request under the "Checks" tab.
 
 There's a [sample pull request](https://github.com/aboyalejandro/code_quality_check/pull/1) to check the outcome.
 
-### 🔨 Customizing Xenon Complexity
-
-You can modify the complexity threshold for Xenon by changing the ``--max-absolute`` flag in your GitHub Actions workflow or when running it locally.
-
-Available grades are A, B, C, D, and F, with A being the least complex and F being the most complex.
-
-### 🔥 Fixing the code with CursorAI
+## 🔥 Fixing the code with CursorAI
 
 Cursor is an AI-powered code editor that can help you fix your code by adding comments, suggestions, and even whole functions and classes.
 
-You can paste the code into Cursor and it will give you a summary of the code and suggestions on how to improve it:
-
-<img width="608" alt="prompt" src="screenshots/prompt.png">
-
-This is the answer of Claude 3.5 Sonnet:
-
-<img width="608" alt="prompt_output" src="screenshots/prompt_output.png">
-
-The result of the code after applying the suggestions:
-
-<img width="608" alt="check_after_fix" src="screenshots/check_after_fix.png">
- 
-#### You can also enable the VSCode extension called ``python-radon`` or ``vscode-radon-linter``
+You can paste the code into Cursor and it will give you a summary of the code and suggestions on how to improve it. There are some [screenshots](https://github.com/aboyalejandro/code-quality-check/tree/main/screenshots) on this repo for you to check how it works.
 
 ### 😎 [Follow me on Linkedin](https://www.linkedin.com/in/alejandro-aboy/)
 - Get tips, learnings and tricks for your Data career!
